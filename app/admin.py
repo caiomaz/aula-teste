@@ -1,6 +1,5 @@
 from django.contrib import admin
-from .models import Categoria, Produto
-# Register your models here.
+from .models import *
 
 class ProdutoInline(admin.TabularInline):
     model = Produto
@@ -17,3 +16,10 @@ class ProdutoAdmin(admin.ModelAdmin):
 
 admin.site.register(Categoria, CategoriaAdmin)
 admin.site.register(Produto, ProdutoAdmin)
+
+
+
+
+
+admin.site.register(Imovel)
+admin.site.register(ContratoLocacao)

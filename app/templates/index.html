@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -14,6 +15,7 @@
                 <th>Fabricante</th>
                 <th>Preco</th>
                 <th>Categoria</th>
+                <th>Imagem</th>
             </tr>
         </thead>
         <tbody>
@@ -24,9 +26,11 @@
                 <td>{{ produto.fabricante }}</td>
                 <td>{{ produto.preco }}</td>
                 <td>{{ produto.categoria }}</td>
+                <td>{{ produto.imagem }}</td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
+    <button onclick="window.location.href='/logout/'">Logout</button>
 </body>
 </html>
