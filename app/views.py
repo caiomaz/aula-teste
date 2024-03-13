@@ -4,7 +4,8 @@ from .models import *
 
 
 from django.contrib.auth import authenticate, login, logout
-
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 
 
 class LoginView(View):
@@ -24,6 +25,7 @@ class LoginView(View):
         else:
             return render(request, 'login.html', {'erro': 'Usuário ou senha inválidos'})
 
+
 class LogoutView(View):
     def get(self, request):
         logout(request)
@@ -33,6 +35,8 @@ class LogoutView(View):
         logout(request)
         return redirect('login')
 
+
+@method_decorator(login_required, name='dispatch')
 class IndexView(View):
     def get(self, request):
         produtos = Produto.objects.all()
@@ -40,6 +44,3 @@ class IndexView(View):
     
     def post(self, request):
         return render(request, 'index.html')
-
-
-
