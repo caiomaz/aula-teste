@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views import View
-from .models import Produto
+from .models import *
 
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
@@ -29,5 +29,6 @@ class IndexView(View):
     def get(self, request):
         produtos = Produto.objects.all()
         return render(request, 'index.html', {'produtos': produtos})
+    
     def post(self, request):
         return render(request, 'index.html')
